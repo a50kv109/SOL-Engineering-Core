@@ -4,3 +4,14 @@ __pycache__/
 *.log
 temp/
 .pytest_cache/
+
+# Temporary artifacts from local tooling and drafts
+gemini-code-*
+sol_repository_builder*.py
+Новый документ*
+Файл*
+Спецификация*
+структура репозитория SOL
+
+# Keep PDFs only inside docs
+/*.pdf
