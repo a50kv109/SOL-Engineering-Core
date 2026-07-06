@@ -1,0 +1,28 @@
+/sol_repository/runtime_layer/
+├── README.md
+├── ARCHITECTURE.md
+├── ACP_PHILOSOPHY.md
+├── ACP_INTEGRATION_PROTOCOL.md
+├── EPMS_SPECIFICATION.md
+├── FIELD_LOG_SPECIFICATION.md
+├── VERSION_HISTORY.md
+├── /core/
+│   └── acp_core_v1_0.py
+├── /epms_templates/
+│   ├── __init__.py
+│   ├── bearing_epms.py
+│   ├── spring_epms.py
+│   └── bolt_epms.py
+├── /examples/
+│   ├── bearing_demo.py
+│   ├── cad_demo.py
+│   └── server_demo.py
+├── /tests/
+│   ├── __init__.py
+│   ├── test_bearing.py
+│   ├── test_spring.py
+│   ├── test_bolt.py
+│   ├── test_false_positive.py
+│   └── test_false_negative.py
+└── /field_logs/
+    └── .gitkeep

@@ -1,0 +1,32 @@
+(* SOL: Structural Operational Language - EBNF Grammar v1.0 *)
+(* Designed as Layer 0 for Sovereign Engineering Systems *)
+
+system          = { node_definition | connection_definition | metadata_block } ;
+
+(* Node Definition *)
+node_definition = node_type , node_id , "{" , [ port_list ] , "}" ;
+node_type       = "SOURCE" | "CONSTRAINT" | "COMPARE" | "DISSIPATE" ;
+node_id         = identifier ;
+
+(* Port System - Crucial for Interoperability *)
+port_list       = port_entry , { "," , port_entry } ;
+port_entry      = port_direction , port_id , ":" , port_kind ;
+port_direction  = "IN" | "OUT" ;
+port_kind       = "POTENTIAL" | "METRIC" | "STATE" | "ASSET" ;
+port_id         = identifier ;
+
+(* Connection Operator - The CON Protocol *)
+connection_definition = source_endpoint , "CON" , target_endpoint ;
+source_endpoint       = node_id , [ "." , port_id ] ;
+target_endpoint       = node_id , [ "." , port_id ] ;
+
+(* Metadata - For project-specific context (E-OS, BOOK-NAV, etc.) *)
+metadata_block  = "META" , node_id , "{" , { key_value_pair } , "}" ;
+key_value_pair  = identifier , "=" , string , ";" ;
+
+(* Lexical Terminals *)
+identifier      = letter , { letter | digit | "_" } ;
+string          = "\"" , { all_characters - "\"" } , "\"" ;
+letter          = "A".."Z" | "a".."z" ;
+digit           = "0".."9" ;
+all_characters  = ? all visible characters ? ;
